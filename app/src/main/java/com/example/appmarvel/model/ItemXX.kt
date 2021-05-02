@@ -1,6 +1,7 @@
 package com.example.appmarvel.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class ItemXX(
 
@@ -12,4 +13,4 @@ data class ItemXX(
 
         @SerializedName("type")
     val type: String?
-)
+)  : Serializable

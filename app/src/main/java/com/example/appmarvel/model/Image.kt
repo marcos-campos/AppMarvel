@@ -1,6 +1,7 @@
 package com.example.appmarvel.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Image(
 
@@ -9,4 +10,4 @@ data class Image(
 
         @SerializedName("path")
     val path: String?
-)
+)  : Serializable

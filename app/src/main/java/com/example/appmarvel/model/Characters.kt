@@ -1,6 +1,7 @@
 package com.example.appmarvel.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Characters(
         @SerializedName("available")
@@ -14,4 +15,4 @@ data class Characters(
 
         @SerializedName("returned")
     val returned: Int?
-)
+)  : Serializable

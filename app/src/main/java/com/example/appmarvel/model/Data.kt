@@ -1,6 +1,7 @@
 package com.example.appmarvel.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Data(
 
@@ -18,4 +19,4 @@ data class Data(
 
         @SerializedName("total")
     val total: Int?
-)
+)  : Serializable
