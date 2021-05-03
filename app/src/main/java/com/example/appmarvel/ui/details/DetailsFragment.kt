@@ -1,6 +1,7 @@
 package com.example.appmarvel.ui.details
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.example.appmarvel.R
 import com.example.appmarvel.model.Result
 import com.example.appmarvel.ui.clickImage.ClickImageActivity
 import com.squareup.picasso.Picasso
+import java.time.LocalDate
 
 
 class DetailsFragment(private val comicsInfo: Result) : Fragment() {
