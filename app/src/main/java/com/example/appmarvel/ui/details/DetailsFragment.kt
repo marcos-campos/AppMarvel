@@ -1,14 +1,17 @@
 package com.example.appmarvel.ui.details
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.appmarvel.R
 import com.example.appmarvel.model.Result
+import com.example.appmarvel.ui.clickImage.ClickImageActivity
 import com.squareup.picasso.Picasso
 
 
@@ -21,6 +24,7 @@ class DetailsFragment(private val comicsInfo: Result) : Fragment() {
     val pricetionComics by lazy { view?.findViewById<TextView>(R.id.tv_detail_price_api) }
     val dateComics by lazy { view?.findViewById<TextView>(R.id.tv_detail_published_api) }
     val pagesComics by lazy { view?.findViewById<TextView>(R.id.tv_detail_page_api) }
+    val buttonBack by lazy { view?.findViewById<Button>(R.id.button_back) }
 
     companion object {
         fun newInstance(comicsInfo: Result) = DetailsFragment(comicsInfo)
@@ -41,6 +45,16 @@ class DetailsFragment(private val comicsInfo: Result) : Fragment() {
         pagesComics?.text = comicsInfo.pageCount.toString()
         Picasso.with(activity).load(comicsInfo.thumbnail?.path + ".jpg").into(imageComics)
         Picasso.with(activity).load(comicsInfo.thumbnail?.path + ".jpg").fit().into(imageComics2)
+
+        imageComics2?.setOnClickListener {
+            val intent2 = Intent(it.context, ClickImageActivity::class.java)
+            intent2.putExtra("information", comicsInfo)
+            activity?.startActivity(intent2)
+        }
+
+        buttonBack?.setOnClickListener {
+            activity?.onBackPressed()
+        }
 
     }
 
