@@ -13,15 +13,19 @@ class MainViewModel : ViewModel() {
     val comicsLiveData = MutableLiveData<ArrayList<Result>>()
     val repository = RepositoryApi()
     val errorMessage = MutableLiveData<String>()
+    val loadingComics = MutableLiveData<Boolean>()
 
     fun getComicsCoroutines(){
         CoroutineScope(Dispatchers.IO).launch {
+            loadingComics.postValue(true)
             try {
                 repository.getComicsApi().let {
                     comicsLiveData.postValue(it.data?.results as ArrayList<Result>)
+                    loadingComics.postValue(false)
                 }
             }
             catch (error: Throwable){
+                loadingComics.postValue(false)
                 sendError(error)
             }
         }

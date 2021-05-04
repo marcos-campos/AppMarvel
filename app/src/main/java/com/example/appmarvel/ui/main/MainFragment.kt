@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +19,7 @@ class MainFragment : Fragment() {
 
     val recycler by lazy { view?.findViewById<RecyclerView>(R.id.recycler_list_comics) }
     private var comicsList = mutableListOf<Result>()
+    lateinit var progressBarComics : ProgressBar
 
     companion object {
         fun newInstance() = MainFragment()
@@ -33,6 +35,8 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        progressBarComics = view?.findViewById<ProgressBar>(R.id.progress_bar_comics)!!
 
         viewModel.getComicsCoroutines()
 
@@ -56,6 +60,14 @@ class MainFragment : Fragment() {
             recycler?.adapter = adapter
 
             adapter?.notifyDataSetChanged()
+        })
+
+        viewModel.loadingComics.observe(this, Observer {
+            if (it) {
+                progressBarComics.visibility = View.VISIBLE
+            } else {
+                progressBarComics.visibility = View.GONE
+            }
         })
     }
 }
