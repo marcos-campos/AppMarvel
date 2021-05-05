@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.appmarvel.MainActivity
 import com.example.appmarvel.R
 import com.example.appmarvel.model.Result
@@ -25,15 +27,20 @@ class LoginFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                           savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.login_fragment, container, false)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+//        val navController = findNavController()
+
      buttonLogin?.setOnClickListener {
+//         navController.navigate(R.id.action_loginFragment_to_mainFragment)
          val intent = Intent(it.context, MainActivity::class.java)
          activity?.startActivity(intent)
         }
+
     }
 }
 

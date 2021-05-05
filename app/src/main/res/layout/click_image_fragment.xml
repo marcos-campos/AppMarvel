@@ -8,11 +8,12 @@
     android:background="@color/blue">
 
     <Button
+        android:id="@+id/button_image_back"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_margin="15dp"
         android:background="@drawable/ic_baseline_close_24"
-        android:id="@+id/button_image_back"
+        app:layout_constraintBottom_toTopOf="@+id/iv_click_image_backgroud"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.appmarvel.MainActivity
 import com.example.appmarvel.R
 import com.example.appmarvel.ui.login.LoginActivity

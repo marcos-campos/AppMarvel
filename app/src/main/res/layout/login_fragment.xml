@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_01"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="360dp"
         android:elevation="10dp"
         app:cardCornerRadius="25dp"
@@ -34,7 +34,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="310dp"
         android:backgroundTint="@color/white"
         android:elevation="10dp"

@@ -2,6 +2,10 @@ package com.example.appmarvel.ui.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.appmarvel.R
 import com.example.appmarvel.ui.clickImage.ClickImageFragment
 
@@ -14,6 +18,7 @@ class LoginActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.containerLogin, LoginFragment.newInstance())
                 .commitNow()
+
         }
     }
 }
