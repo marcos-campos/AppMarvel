@@ -29,6 +29,7 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
@@ -42,7 +43,7 @@ class MainFragment : Fragment() {
 
         recycler?.layoutManager = GridLayoutManager(activity,3)
 
-        viewModel.comicsLiveData.observe(this, Observer { result ->
+        viewModel.comicsLiveData.observe(viewLifecycleOwner, Observer { result ->
 
             comicsList.addAll(result)
 
@@ -62,7 +63,7 @@ class MainFragment : Fragment() {
             adapter?.notifyDataSetChanged()
         })
 
-        viewModel.loadingComics.observe(this, Observer {
+        viewModel.loadingComics.observe(viewLifecycleOwner, Observer {
             if (it) {
                 progressBarComics.visibility = View.VISIBLE
             } else {

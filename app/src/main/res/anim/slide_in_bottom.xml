@@ -3,4 +3,5 @@
     android:duration="@android:integer/config_mediumAnimTime"
     android:interpolator="@android:anim/decelerate_interpolator"
     android:fromYDelta="100%"
-    android:toYDelta="0%" />
+    android:toYDelta="0%"
+    />

@@ -41,9 +41,9 @@ class DetailsFragment(private val comicsInfo: Result) : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         titleComics?.text = comicsInfo.title
-        descriptionComics?.text = comicsInfo.description.toString()
-        pricetionComics?.text = comicsInfo.prices.toString()
-        dateComics?.text = comicsInfo.dates.toString()
+        descriptionComics?.text = comicsInfo.description as CharSequence? ?: "No description."
+        pricetionComics?.text = comicsInfo.prices?.first { i-> i.type == "printPrice"}?.price.toString()
+        dateComics?.text = comicsInfo.dates?.first { i-> i.type == "focDate"}?.date?.substring(0,10)
         pagesComics?.text = comicsInfo.pageCount.toString()
         Picasso.with(activity).load(comicsInfo.thumbnail?.path + ".jpg").into(imageComics)
         Picasso.with(activity).load(comicsInfo.thumbnail?.path + ".jpg").fit().into(imageComics2)
