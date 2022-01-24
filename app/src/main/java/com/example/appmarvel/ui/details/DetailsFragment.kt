@@ -57,9 +57,7 @@ class DetailsFragment(private val comicsInfo: Result) : Fragment() {
         buttonBack?.setOnClickListener {
             activity?.onBackPressed()
         }
-
     }
-
 }
 
 
